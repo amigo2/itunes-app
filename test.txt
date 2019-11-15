@@ -1,0 +1,73 @@
+Stack:
+
+React 16.6
+
+ 
+
+The task is to build a search engine of songs, the search for songs must be extracted from the iTunes API.
+
+ 
+
+Screen 1: Search screen for itunes
+
+Search screen should contains:
+
+•             //Input text field - A simple text input
+
+•             //Submit button - Should submit the query with the input value
+
+•             //Results - Show 25 results,
+
+•             //Click on a single result should lead you to SCREEN 2
+
+•             “Top 10 searching” Button - Will show the top 10 searched queries that made by the user
+
+ 
+
+Screen 2:
+
+            Will show full information about the clicked result.
+
+            If it’s a video the developer should display the video in the page
+
+            //If it’s an audio the developer should display the audio player in the page
+
+            Save as Favorite button – Bonus.
+
+ 
+
+Bonus:
+
+Create playlist.
+
+1.            Create new playlist button.
+
+2.            On SCREEN 2 add a button that allow to add this search result to your playlist.
+
+3.            In SCREEN 1, you should display all your playlists, click on playlist name should lead you to SCREEN 3 where you can see all the playlist songs and play, pause or stop each one of them.
+
+ 
+
+Main guidelines
+
+•             Design
+
+•             Clean and ordered code
+
+     -     Performance
+
+     -     Npm start should start the app
+
+ 
+
+* Design should be decided by the developer
+
+* All of the data should saved in store.
+
+ 
+
+ 
+
+Why do you think we chose the Apple API?
+
+What was the difficulty in your mission?
