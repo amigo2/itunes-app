@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import SongImage from "./SongImage";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Navbar from "./components/layouts/Navbar";
+import Index from "./components/layouts/Index";
+import { Provider } from "./context";
 
 class TopTenButton extends React.Component {
   render() {
@@ -71,38 +76,47 @@ class App extends Component {
     )
       .then(res => res.json())
       .then(data => {
+        //console.log(data);
         this.setState({ songs: data.results });
       });
   }
 
   render() {
-    const songList = this.state.songs.map((url, i) => {
-      return <SongImage key={i} url={url} />;
-    });
-
     return (
-      <div className="container">
-        <div className="row">
-          <form className="form-inline" onSubmit={this.submit}>
-            <div className="form-group">
-              <input
-                onChange={this.handleChange}
-                type="search"
-                id="search"
-                name="search"
-                className="form-control"
-              />
-              <input className="form-control" type="submit" value="Search" />
+      <Provider>
+        <Router>
+          <React.Fragment>
+            <Navbar />
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Index} />
+              </Switch>
+              <form className="form-inline" onSubmit={this.submit}>
+                <div className="form-group">
+                  <input
+                    onChange={this.handleChange}
+                    type="search"
+                    id="search"
+                    name="search"
+                    className="form-control"
+                  />
+                  <input
+                    className="form-control"
+                    type="submit"
+                    value="Search"
+                  />
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
-        <div>
-          <TopTenButton />
-          <h1> Albums</h1>
+            <div>
+              <TopTenButton />
+              <h1> Albums</h1>
 
-          <ThumbnailList results={this.state.songs} />
-        </div>
-      </div>
+              <ThumbnailList results={this.state.songs} />
+            </div>
+          </React.Fragment>
+        </Router>
+      </Provider>
     );
   }
 }
